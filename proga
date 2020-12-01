@@ -1,0 +1,78 @@
+print('"РОЗРАХУНКОВО-ГРАФІЧНА РОБОТА"\nз дисципліни Програмування 1-ий семестр\nна тему: «Програма тестування знань учнів (6 варіантів відповіді - 2 правильні)\nВиконала: студентка групи КМ-02\nЛазарєва Марія ')
+print('-------\n')
+
+print('Це програма тестування знань учнів, де є три питання. Kожне з них має шість варіантів відповіді, і лише два виріанти є правильними.\nУ відповідь слід вводити букву через кому або без неї (Приклад: a, b)\n')
+print('В кінці тесту буде виведена Ваша оцінка. За кожну правильну відповідь нараховується по одному балу. Максимальна кількість балів - 6.')
+print('-------\n')
+
+running = True
+while running:
+    r = True
+    while r:
+        readiness = str.lower(input('Введіть "ready", коли будете готові почати тестування: '))
+        if readiness == "ready":
+            break
+    else:
+        r = True
+    grade = 0
+
+    print('Питання №1\nОберіть одномембранні органели:')
+    print('a. ядро;\nb. вакуоль;\nc. рибосома;\nd. комплекс Гольджі;\ne. мітохондрії;\nf. хлоропласт\n')
+    check = True
+    while check:
+        ans = str(input('Ваша відповідь: '))
+        ans_clear = ans.replace(',', '').replace(' ', '')
+        if ans_clear.isalpha() and ans_clear.isascii():
+            ans_set = {}
+            ans_set = set(ans_clear)
+            if ans_set == {'b', 'd'}:
+                grade += 2
+            elif 'b' in ans_set:
+                grade += 1
+            elif 'd' in ans_set:
+                grade += 1
+            break
+        else:
+            print('Введіть латинські букви варіантів відповіді')
+
+    print('Питання №2\nЯкі еволюційні події мають характер ароморфозів?')
+    print('a. виникнення різних типів листя у водних рослин;\nb. редукція травної системи у стьожкових червів;\nc. поява гострих кігтів у хижих птахів;\nd. поява квітки;\ne.  поява білого забарвлення у північних тварин;\nf. поява легенів у земноводних\n')
+    check = True
+    while check:
+        ans = str(input('Ваша відповідь: '))
+        ans_clear = ans.replace(',', '').replace(' ', '')
+        if ans_clear.isalpha() and ans_clear.isascii():
+            ans_set = {}
+            ans_set = set(ans_clear)
+            if ans_set == {'d', 'f'}:
+                grade += 2
+            elif 'd' in ans_set:
+                grade += 1
+            elif 'f' in ans_set:
+                grade += 1
+            break
+        else:
+            print('Введіть латинські букви варіантів відповіді')
+
+    print('Питання №3\nОберіть двохмембранні органели:')
+    print('a. лізосоми;\nb. вакуоль;\nc. рибосома;\nd. пластиди;\ne. мітохондрії;\nf. ендоплазматична сітка\n')
+    check = True
+    while check:
+        ans = str(input('Ваша відповідь: '))
+        ans_clear = ans.replace(',', '').replace(' ', '')
+        if ans_clear.isalpha() and ans_clear.isascii():
+            ans_set = {}
+            ans_set = set(ans_clear)
+            if ans_set == {'d', 'e'}:
+                grade += 2
+            elif 'd' in ans_set:
+                grade += 1
+            elif 'e' in ans_set:
+                grade += 1
+            break
+        else:
+            print('Введіть латинські букви варіантів відповіді')
+    print(f'Ваша оцінка: {grade}')
+    restart = str(input('Спробувати ще? так/ні'))
+    if restart.lower() != 'так':
+        running = False
